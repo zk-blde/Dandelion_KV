@@ -28,7 +28,7 @@ func (vs *ValueStruct) DecodeValue(buf []byte) {
 	vs.Value = buf[1+sz:]
 }
 
-func (vs *ValueStruct) encodeValue(b []byte) uint32 {
+func (vs *ValueStruct) EncodeValue(b []byte) uint32 {
 	b[0] = vs.Meta
 	sz := binary.PutUvarint(b[1:], vs.ExpiresAt)
 	n := copy(b[1+sz:], vs.Value)
